@@ -14,5 +14,4 @@ public class UsuarioController {
     public String cadastro(){
         return "auth/cadastro";
     }
-
 }
