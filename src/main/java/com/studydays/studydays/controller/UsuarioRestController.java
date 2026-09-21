@@ -26,11 +26,11 @@ public class UsuarioRestController {
 
     // só para testes, definitivamente não preciso de uma função assim depois 
     @GetMapping("/todos")
-    public List<Usuario> pegarUsuarios(@Valid @RequestBody Usuario usuario){
+    public List<Usuario> pegarUsuarios(){
         return usuarioRepository.findAll();
     }
 
-    @PostMapping("/cadastro")
+    @PostMapping("/cadastrarUsuario")
     public ResponseEntity<Usuario> cadastrarUsuario(@Valid @RequestBody Usuario usuario) {
         usuario.setId(null); 
         Usuario salvo = usuarioRepository.save(usuario);
@@ -39,7 +39,7 @@ public class UsuarioRestController {
     // não dá para mudar o tipo de retorno dessa função para ser Boolean?
     // vai bater um pouco melhor com o diagrama de classes 
 
-    @PostMapping("/login")
+    @PostMapping("/autenticarUsuario")
     public ResponseEntity<Boolean> autenticarUsuario(@RequestBody Usuario usuario){
         Usuario usuarioBanco = usuarioRepository.findByNome(usuario.getNome()).orElse(null);
 
