@@ -41,7 +41,7 @@ public class UsuarioRestController {
 
     @PostMapping("/login")
     public ResponseEntity<Boolean> autenticarUsuario(@RequestBody Usuario usuario){
-        Usuario usuarioBanco = usuarioRepository.buscarUsuario(usuario.getNome()).orElse(null);
+        Usuario usuarioBanco = usuarioRepository.findByNome(usuario.getNome()).orElse(null);
 
         if(usuarioBanco == null){
             return ResponseEntity.ok(false);
