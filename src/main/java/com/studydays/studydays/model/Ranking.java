@@ -22,8 +22,8 @@ public class Ranking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (nullable = false)
-    private Usuario jogador;
+    /* @Column (nullable = false)
+    private Usuario jogador; */
 
     @Column (nullable = false)
     private int valorPontuacao;
